@@ -1,0 +1,46 @@
+name: Build and Deploy Marp Presentations
+on:
+  push:
+    branches:
+      - main  # Or your main branch name
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Or your preferred Node.js version
+
+      - name: Install Marp CLI
+        run: npm install -g @marp-team/marp-cli
+
+      - name: Build Presentations
+        run: |
+          mkdir -p public
+          for md in presentations/*.md; do
+            filename=$(basename "$md" .md)
+            marp "$md" --output "public/${filename}.html"
+          done
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: public
+          path: public
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: public
+          path: public
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: public
