@@ -15,7 +15,7 @@ Vamos ver código e rapidamente falar sobre agentes.
 
 Inteligência Artificial é sobre máquinas que fazem tarefas que normalmente exigem a inteligência de um humano. Temos diversos campos dentro da IA e entre eles temos **Machine Learning (ML)**
 
-<img src="campos_ia.png" alt="ML" width="600"/>
+<img src="./images/campos_ia.png" alt="ML" width="600"/>
 
 ---
 ## Large Language Models
@@ -26,12 +26,24 @@ Modelos gigantes de linguagem são redes neurais baseadas em [Transformers](http
 * Uma segunda fase desse processo treina o LLM com **tokens especiais** e assim ela aprende a ser um assistente
 * Há outras fases para reforçar o aprendizado. Tudo isso é explicado a fundo no vídeo do [Andrej Karpathy](https://www.youtube.com/watch?v=7xTGNNLPyMI)
 
+
+<center><img src="./images/image.png" alt="function calling" width="300"/></center>
+
 ---
+
+### Usando LLMs
+
+Você usar LLMs localmente usando ferramentas como Ollama e puxando modelos abertos e levem que são compatíveis com o hardware do seu computador ou pagar um servidor remote, como Deep Seek e Alibaba
+
+---
+
+
+
 
 ### Chamando Funções
 
 Uma dos tokens especiais ajudam a LLM a gerar conteúdo que podem ser usados para chamar código que você criou (Tools) ! Mas para isso funcionar você precisa de algum framework ou API que lê esses tokens e chama seu código
-<img src="function_calling.png" alt="function calling" width="700"/>
+<img src="./images/function_calling.png" alt="function calling" width="700"/>
 
 ---
 
@@ -41,7 +53,7 @@ Agentes são aplicação de IA que têm **agência** do seu ambiente, ou seja, p
 
 Sugestão: [Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction)
 
-<img src="curso_agente.png" alt="curso agente" width="600"/>
+<img src="./images/curso_agente.png" alt="curso agente" width="600"/>
 
 ---
 
